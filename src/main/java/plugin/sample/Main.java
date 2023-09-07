@@ -106,6 +106,8 @@ public final class Main extends JavaPlugin implements Listener {
     }
 }
 
+//サンプルです。2回目です。
+
 
 
 
