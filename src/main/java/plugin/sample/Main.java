@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -23,6 +24,9 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
+
+import org.bukkit.ChatColor;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 
 public final class Main extends JavaPlugin implements Listener {
@@ -104,9 +108,21 @@ public final class Main extends JavaPlugin implements Listener {
             e.setCancelled(true);
         }
     }
+
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        // プレイヤーがJoinしたときに水色のメッセージを送信
+        String playerName = event.getPlayer().getName();
+        String message = ChatColor.AQUA + playerName + " さんが " + ChatColor.YELLOW + "Rimonサーバー" + ChatColor.AQUA + " に来たよ〜！";
+        event.setJoinMessage(message);
+    }
+
+
+
 }
 
-//サンプルです。2回目です。
+
 
 
 
